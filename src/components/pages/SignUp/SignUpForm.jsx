@@ -1,5 +1,6 @@
 import React from 'react'
 import { PureComponent } from 'react'
+import { signUp } from '../../../utilities/users-service';
 
 export default class SignUpForm extends PureComponent {
   // state is always an object with a property for each "piece" of state
@@ -20,14 +21,27 @@ export default class SignUpForm extends PureComponent {
      });
 };
      
-     handleSubmit = (evt) => {
-    evt.preventDefault()
-     this.setState({
-       [evt.target.name]: evt.target.value,
-       error: ''
-     });
-     alert(JSON.stringify(this.state))
-   };
+handleSubmit = async (evt) => {
+  // Prevent form from being submitted to the server
+  evt.preventDefault();
+  try {
+    // We don't want to send the 'error' or 'confirm' property,
+    //  so let's make a copy of the state object, then delete them
+    const formData = {...this.state};
+    delete formData.error;
+    delete formData.confirm;
+    // The promise returned by the signUp service method
+  // will resolve to the user object included in the
+  // payload of the JSON Web Token (JWT)
+  const user = await signUp(formData);
+  console.log(user)
+
+  } catch {
+    // An error occurred
+    this.setState({ error: 'Sign Up Failed - Try Again' });
+  }
+};
+  
      render() {
           const disable = this.state.password !== this.state.confirm;
           return (
