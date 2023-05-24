@@ -34,7 +34,10 @@ handleSubmit = async (evt) => {
   // will resolve to the user object included in the
   // payload of the JSON Web Token (JWT)
   const user = await signUp(formData);
-  console.log(user)
+    console.log(user)
+
+    // this.setState({ confirm: 'Sign Up Successful!' });
+
 
   } catch {
     // An error occurred
