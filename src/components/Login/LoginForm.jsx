@@ -22,6 +22,8 @@ export default function LoginForm() {
             event.preventDefault()
             try {
                   const user = await usersService.logIn(creds)
+                  console.log('Log in successful, here is user obj:')
+                  console.log(user)
             }
             catch (error) {
                   SetError('Log in failed, try again')

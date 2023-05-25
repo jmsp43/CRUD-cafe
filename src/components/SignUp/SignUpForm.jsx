@@ -1,6 +1,7 @@
 import React from 'react'
 import { PureComponent } from 'react'
 import { signUp } from '../../utilities/users-service';
+import { Link } from 'react-router-dom';
 
 export default class SignUpForm extends PureComponent {
   // state is always an object with a property for each "piece" of state
@@ -50,6 +51,8 @@ handleSubmit = async (evt) => {
           const disable = this.state.password !== this.state.confirm;
           return (
             <div>
+                    <Link to=""
+              >Log In</Link>
               <div className="form-container">
                 <form autoComplete="off" onSubmit={this.handleSubmit}>
                   <label>Name</label>
