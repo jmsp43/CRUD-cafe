@@ -15,7 +15,8 @@ function App() {
       {user ? (
         <>
           <NavBar
-            user={user} />
+            user={user}
+            setUser={setUser}/>
         <Routes>
           <Route path="/orders" element={<OrderHistoryPage />} />
 
