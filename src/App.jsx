@@ -14,7 +14,8 @@ function App() {
     <main className="App">
       {user ? (
         <>
-        <NavBar/>
+          <NavBar
+            user={user} />
         <Routes>
           <Route path="/orders" element={<OrderHistoryPage />} />
 
@@ -22,7 +23,7 @@ function App() {
           </Routes>
           </>
       ) : (
-        <AuthPage />
+          <AuthPage setUser={setUser} />
           // <Routes>
           //   <Route path = '/' element = {<AuthPage />}/>
           // </Routes>
