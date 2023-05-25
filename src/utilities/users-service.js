@@ -36,3 +36,12 @@ export function logOut() {
   localStorage.removeItem('token')
   
   }
+
+export async function logIn(creds) {
+
+  const token = await usersAPI.logIn(creds)
+
+  //persist token
+  localStorage.setItem('token', token)
+  return getUser();
+  }

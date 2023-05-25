@@ -1,6 +1,6 @@
 import React from 'react'
 import { PureComponent } from 'react'
-import { signUp } from '../../../utilities/users-service';
+import { signUp } from '../../utilities/users-service';
 
 export default class SignUpForm extends PureComponent {
   // state is always an object with a property for each "piece" of state
